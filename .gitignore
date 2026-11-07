@@ -1,0 +1,20 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# Secrets and local config (nothing needs a secret today; keep it that way for any future ESPN cookies, etc.)
+.env
+.env.*
+*.pem
+
+# Local scratch and logs
+*.log
+scratch/
+tmp/
+screenshots/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

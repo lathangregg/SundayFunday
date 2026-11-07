@@ -1,0 +1,15 @@
+{
+  "name": "yellowstone-ffl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive analytics site for the Yellowstone Ranch Sleeper fantasy football league",
+  "scripts": {
+    "fetch": "node scripts/fetch.mjs",
+    "test": "node tests/verify.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

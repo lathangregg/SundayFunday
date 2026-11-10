@@ -20,7 +20,7 @@ Sleeper API  →  scripts/fetch.mjs  →  site/data/league.json  →  site/ (sta
 
 | Path | What it is |
 |---|---|
-| `config.json` | League ID and your Sleeper username (the username gets highlighted on the site) |
+| `config.json` | League ID. Nobody is highlighted by default; each visitor can pick their own team with the ⭐ menu in the header (remembered on that device) |
 | `scripts/fetch.mjs` | Pulls teams, weekly matchups, starters' points, and past seasons (via `previous_league_id`) into `site/data/league.json` |
 | `site/js/analytics.js` | All calculations (pure functions, shared by the site and the tests) |
 | `site/js/pages/` | One file per page: `home`, `history`, `schedule`, `roster` |

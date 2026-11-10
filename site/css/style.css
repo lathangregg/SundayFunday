@@ -103,3 +103,6 @@ svg.chart .grid-line { stroke: var(--line); stroke-width: 1; }
 .mu .pts { text-align: right; font-variant-numeric: tabular-nums; }
 .loading, .err { padding: 40px 0; text-align: center; color: var(--muted); }
 .err { color: var(--bad); }
+
+.me-pick { font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 4px; }
+.me-pick select { max-width: 130px; background: var(--surface2); color: var(--text); border: 1px solid var(--faint); border-radius: 6px; padding: 3px 4px; font-size: 12px; }

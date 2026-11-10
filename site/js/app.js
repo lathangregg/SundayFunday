@@ -58,12 +58,31 @@ function route(keepScroll = false) {
   if (keepScroll) window.scrollTo(0, y); else window.scrollTo(0, 0);
 }
 
+// "My team" highlight: chosen per viewer and remembered on this device only.
+function setupMePicker(data) {
+  const key = 'ffl-me-' + data.league.id;
+  let saved = null;
+  try { saved = localStorage.getItem(key); } catch {}
+  const pick = ctx.teams.find(t => t.userId === saved);
+  ctx.meRid = pick ? pick.rosterId : null;
+  const sel = document.getElementById('me-select');
+  sel.replaceChildren(h('option', { value: '' }, 'No highlight'),
+    ...ctx.teams.map(t => h('option', { value: t.userId, selected: pick && t.userId === pick.userId ? true : null }, t.name)));
+  sel.onchange = () => {
+    const t = ctx.teams.find(x => x.userId === sel.value);
+    ctx.meRid = t ? t.rosterId : null;
+    try { t ? localStorage.setItem(key, t.userId) : localStorage.removeItem(key); } catch {}
+    route(true);
+  };
+}
+
 async function main() {
   try {
     const res = await fetch('data/league.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error('league.json ' + res.status);
     const data = await res.json();
     ctx = A.prepare(data);
+    setupMePicker(data);
     document.getElementById('league-name').textContent = data.league.name;
     document.title = data.league.name;
     const last = ctx.completed[ctx.completed.length - 1];

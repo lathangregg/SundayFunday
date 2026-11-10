@@ -43,8 +43,6 @@ const teams = rosters.map(r => {
   };
 }).sort((a, b) => a.rosterId - b.rosterId);
 
-const me = teams.find(t => t.name.toLowerCase() === cfg.username.toLowerCase());
-if (!me) console.warn(`Warning: username "${cfg.username}" not found in this league`);
 
 const seen = new Set();
 const weeks = [];
@@ -132,7 +130,6 @@ const out = {
     currentWeek: state.week,
     seasonType: state.season_type,
   },
-  me: me ? { rosterId: me.rosterId, name: me.name } : null,
   teams,
   weeks,
   players,
